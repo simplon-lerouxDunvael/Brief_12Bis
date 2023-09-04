@@ -42,31 +42,31 @@ variable subnet_prefix {
   default = "10.0.0.0/16"
 }
 
-node_pool_name = {
+variable node_pool_name {
   description = "Nom du node pool"
   type = string
   default = "pool-db12"
 }
 
-node_count = {
+variable node_count {
   description = "Nombre de nodes"
   type = number
   default = "2"
 }
 
-vm_size = {
+variable vm_size {
   description = "Taille de la VM"
   type = string
   default = "Standard_D2_v2"
 }
 
-identity = {
+variable identity {
   description = "Identité"
   type = string
   default = "SystemAssigned"
 }
 
-tags = {
+variable tags {
   description = "Tag"
   type = string
   default = "dev"
