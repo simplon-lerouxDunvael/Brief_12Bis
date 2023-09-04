@@ -5,22 +5,22 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = local.resource_group_name[rg1]
-  location = local.location[france]
+  name     = var.resource_group_name
+  location = var.location
 }
 
 resource "azurerm_virtual_network" "vnet" {
-  name                = local.vnet_name[vnet1]
+  name                = var.vnet_name
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
-  address_space       = local.address_space["vnet1add"]
+  address_space       = var.address_space
 }
 
 resource "azurerm_subnet" "subnet" {
-  name                 = local.subnet_name[sbnt1]
+  name                 = var.subnet_name
   resource_group_name  = azurerm_resource_group.vnet.name
   virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = local.subnet_prefix["sbnt-pref2"] # pour mettre plusieurs clés de variables : [local.subnet_prefix["sbnt-pref2"], ["autre clé"]]
+  address_prefixes     = var.subnet_prefix
 }
 
 # ... ajouter NAT Gateway et Route Table ici comme bonus
