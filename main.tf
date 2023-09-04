@@ -23,7 +23,7 @@ resource "azurerm_kubernetes_cluster" "AKS" {
   }
 
   identity {
-    type = "SystemAssigned"
+    type = var.identity
   }
 
   tags = {
