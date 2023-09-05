@@ -23,11 +23,11 @@ resource "azurerm_kubernetes_cluster" "AKS" {
   }
 
   identity {
-    type = var.identity
+    type = "SystemAssigned"
   }
 
   tags = {
-    Environment = var.tags
+    Environment = "dev"
   }
 }
 
@@ -52,7 +52,7 @@ resource "azurerm_nat_gateway" "gateway" {
   name                    = var.gateway_name
   resource_group_name     = azurerm_resource_group.rg.name
   location                = azurerm_resource_group.rg.location
-  public_ip_address_ids   = azurerm_public_ip.pubIP_gateway
+  public_ip_address_ids   = [azurerm_public_ip.pubIP_gateway.id]
 }
 
 # Créer une IP publique pour la NAT Gateway
@@ -100,7 +100,7 @@ output "resource_group_name" {
   value = azurerm_resource_group.rg.name
 }
 
-output "subnet_id" {
+output "subnet1_id" {
   value = azurerm_subnet.subnet1.id
 }
 
