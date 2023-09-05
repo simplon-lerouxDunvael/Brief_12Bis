@@ -29,7 +29,6 @@ resource "azurerm_kubernetes_cluster" "AKS" {
     name       = var.node_pool_name
     node_count = var.node_count
     vm_size    = var.vm_size
-    vnet_subnet_id = azurerm_subnet.subnet1.id
   }
 
   identity {
