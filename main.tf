@@ -35,7 +35,7 @@ resource "azurerm_virtual_network" "vnet" {
   name                = var.vnet_name
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
-  address_space       = [var.address_space]
+  address_space       = var.address_space
 }
 
 resource "azurerm_subnet" "subnet1" {
@@ -83,7 +83,7 @@ resource "azurerm_subnet" "priv_subnet" {
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = var.priv_sbnt_add_pref
-  nat_gateway_id       = azurerm_nat_gateway.gateway.id
+  /* nat_gateway_id       = azurerm_nat_gateway.gateway.id */
 }
 
 # Créer un sous-réseau public
