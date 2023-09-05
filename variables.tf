@@ -25,7 +25,7 @@ variable vnet_name {
 variable address_space {
   description = "CIDR"
   type = list(string)
-  default = ["10.0.0.0/16"]
+  default = ["10.6.0.0/16"]
 }
 
 variable subnet1_name {
@@ -37,7 +37,7 @@ variable subnet1_name {
 variable subnet1_prefix {  
   description = "Plage d'adresses IP pour le sous-réseau 1"
   type = list(string)
-  default = ["10.0.1.0/24"]
+  default = ["10.6.1.0/24"]
 }
 
 variable gateway_name {  
@@ -79,7 +79,7 @@ variable priv_subnet_name {
 variable priv_sbnt_add_pref {  
   description = "Plage d'adresses IP pour le sous-réseau privé"
   type = list(string)
-  default = ["10.0.2.0/24"]
+  default = ["10.6.2.0/24"]
 }
 
 variable pub_subnet_name {  
@@ -91,7 +91,7 @@ variable pub_subnet_name {
 variable pub_sbnt_add_pref {  
   description = "Plage d'adresses IP pour le sous-réseau publique"
   type = list(string)
-  default = ["10.0.3.0/24"]
+  default = ["10.6.3.0/24"]
 }
 
 # Variables pour l'AKS
@@ -125,3 +125,33 @@ variable vm_size {
   type = string
   default = "Standard_D2_v2"
 }
+
+/* variable LB {
+  description = "Sku du load balancer"
+  type = string
+  default = "standard"
+}
+
+variable "service_cidr" {
+  description = "(Optional) The Network Range used by the Kubernetes service.Changing this forces a new resource to be created."
+  type        = string
+  default     = "10.0.0.0/16"
+}
+
+variable "dns_service_ip" {
+  description = "(Optional) IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns)."
+  type        = string
+  default     = "10.0.0.10"
+}
+
+variable "pod_cidr" {
+  description = "(Optional) The CIDR to use for pod IP addresses. Changing this forces a new resource to be created."
+  type        = string
+  default     = "10.244.0.0/16"
+}
+
+variable "docker_bridge_cidr" {
+  description = "(Optional) The Network Range used by the Kubernetes service. Changing this forces a new resource to be created."
+  type        = string
+  default     = "172.17.0.1/16"
+} */
