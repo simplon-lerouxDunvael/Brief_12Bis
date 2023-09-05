@@ -25,7 +25,7 @@ variable vnet_name {
 variable address_space {
   description = "CIDR"
   type = string
-  default = "10.0.1.0/24"
+  default = "10.0.0.0/16"
 }
 
 variable subnet1_name {
@@ -37,7 +37,7 @@ variable subnet1_name {
 variable subnet1_prefix {  
   description = "Plage d'adresses IP pour le sous-réseau 1"
   type = string
-  default = "10.0.0.0/16"
+  default = "10.0.1.0/16"
 }
 
 variable gateway_name {  
