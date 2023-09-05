@@ -26,19 +26,29 @@ resource "azurerm_kubernetes_cluster" "AKS" {
   dns_prefix          = var.dns_prefix
   
   default_node_pool {
-    name       = var.node_pool_name
-    node_count = var.node_count
-    vm_size    = var.vm_size
+    name               = var.node_pool_name
+    node_count         = var.node_count
+    vm_size            = var.vm_size
+    vnet_subnet_id     = azurerm_subnet.subnet1.id 
   }
 
-  network_profile {
-    network_plugin     = "azure"
-    load_balancer_sku  = "standard"
-  }
+  /* network_profile {
+    network_plugin     = "kubenet"
+    load_balancer_sku  = var.LB
+    service_cidr       = var.service_cidr
+    dns_service_ip     = var.dns_service_ip
+    pod_cidr           = var.pod_cidr
+    docker_bridge_cidr = var.docker_bridge_cidr
+  } */
 
   identity {
     type = "SystemAssigned"
   }
+
+  /* depends_on = [
+    azurerm_route.routeTab,
+    azurerm_role_assignment.route-association
+  ] */
 
   tags = {
     Environment = "dev"
