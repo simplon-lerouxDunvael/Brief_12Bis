@@ -35,7 +35,7 @@ resource "azurerm_virtual_network" "vnet" {
   name                = var.vnet_name
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
-  address_space       = var.address_space
+  address_space       = [var.address_space]
 }
 
 resource "azurerm_subnet" "subnet1" {
@@ -52,7 +52,7 @@ resource "azurerm_nat_gateway" "gateway" {
   name                    = var.gateway_name
   resource_group_name     = azurerm_resource_group.rg.name
   location                = azurerm_resource_group.rg.location
-  public_ip_address_ids   = [azurerm_public_ip.pubIP_gateway.id]
+  sku_name                = var.sku_name
 }
 
 # Créer une IP publique pour la NAT Gateway
