@@ -42,7 +42,7 @@ resource "azurerm_kubernetes_cluster" "AKS" {
   } */
 
   identity {
-    type = "UserAssigned" # SystemAssigned
+    type = "SystemAssigned" # UserAssigned
   }
 
   /* depends_on = [
@@ -87,7 +87,7 @@ resource "azurerm_public_ip" "pubIP_gateway" {
   sku                 = var.pubIP_sku
 }
 
-# Créer une Route Table
+/* # Créer une Route Table
 resource "azurerm_route_table" "routeTab" {
   name                = var.routeTab_name
   resource_group_name = azurerm_resource_group.rg.name
@@ -98,7 +98,7 @@ resource "azurerm_route_table" "routeTab" {
 resource "azurerm_subnet_route_table_association" "route-association" {
   subnet_id      = azurerm_subnet.subnet1.id
   route_table_id = azurerm_route_table.routeTab.id
-}
+} */
 
 # Créer un sous-réseau privé
 resource "azurerm_subnet" "priv_subnet" {
