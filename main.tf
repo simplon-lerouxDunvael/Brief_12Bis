@@ -1,5 +1,14 @@
 # Module de déploiement d'un RG et d'un network
 
+terraform {
+ required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~>2.0"
+    }
+  }
+}
+
 provider "azurerm" {
   features {}
 }
