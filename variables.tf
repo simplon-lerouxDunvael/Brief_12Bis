@@ -24,8 +24,8 @@ variable vnet_name {
 
 variable address_space {
   description = "CIDR"
-  type = string
-  default = "10.0.0.0/16"
+  type = list(string)
+  default = ["10.0.0.0/16"]
 }
 
 variable subnet1_name {
@@ -36,8 +36,8 @@ variable subnet1_name {
 
 variable subnet1_prefix {  
   description = "Plage d'adresses IP pour le sous-réseau 1"
-  type = string
-  default = "10.0.1.0/16"
+  type = list(string)
+  default = ["10.0.1.0/16"]
 }
 
 variable gateway_name {  
@@ -84,8 +84,8 @@ variable priv_subnet_name {
 
 variable priv_sbnt_add_pref {  
   description = "Plage d'adresses IP pour le sous-réseau privé"
-  type = string
-  default = "10.0.2.0/16"
+  type = list(string)
+  default = ["10.0.2.0/16"]
 }
 
 variable pub_subnet_name {  
@@ -96,8 +96,8 @@ variable pub_subnet_name {
 
 variable pub_sbnt_add_pref {  
   description = "Plage d'adresses IP pour le sous-réseau publique"
-  type = string
-  default = "10.0.3.0/16"
+  type = list(string)
+  default = ["10.0.3.0/16"]
 }
 
 # Variables pour l'AKS
