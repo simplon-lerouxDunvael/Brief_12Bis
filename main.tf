@@ -75,7 +75,7 @@ resource "azurerm_route_table" "routeTab" {
 # Attacher la Route Table au Subnet
 resource "azurerm_subnet_route_table_association" "route-association" {
   subnet_id      = azurerm_subnet.subnet1.id
-  route_table_id = azurerm_route_table.routeTab
+  route_table_id = azurerm_route_table.routeTab.id
 }
 
 # Créer un sous-réseau privé
