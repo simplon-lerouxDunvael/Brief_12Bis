@@ -94,7 +94,7 @@ resource "azurerm_subnet" "pub_subnet" {
   address_prefixes     = var.pub_sbnt_add_pref
 }
 
-# Outputs
+/* # Outputs
 
 output "resource_group_name" {
   value = azurerm_resource_group.rg.name
@@ -118,4 +118,4 @@ output "priv_subnet_id" {
 
 output "pub_subnet_id" {
   value = azurerm_subnet.pub_subnet.id
-}
+} */
