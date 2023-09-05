@@ -99,7 +99,7 @@ variable pub_sbnt_add_pref {
 variable aks_name {
   description = "Nom du cluster AKS"
   type = string
-  aks = "db12-AKS"
+  default = "db12-AKS"
 }
 
 variable node_pool_name {
@@ -111,7 +111,7 @@ variable node_pool_name {
 variable node_count {
   description = "Nombre de nodes"
   type = number
-  default = "2"
+  default = 2
 }
 
 variable vm_size {
