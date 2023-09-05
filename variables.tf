@@ -5,7 +5,7 @@
 variable resource_group_name {
   description = "Nom du RG"
   type = string
-  rg1 = "db12-rg"
+  default = "db12-rg"
 }
 
 variable location {
