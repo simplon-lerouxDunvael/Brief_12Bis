@@ -62,7 +62,6 @@ resource "azurerm_nat_gateway" "gateway" {
   name                    = var.gateway_name
   resource_group_name     = azurerm_resource_group.rg.name
   location                = azurerm_resource_group.rg.location
-  /* sku_name                = var.sku_name */
 }
 
 # Créer une IP publique pour la NAT Gateway
@@ -93,7 +92,6 @@ resource "azurerm_subnet" "priv_subnet" {
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = var.priv_sbnt_add_pref
-  /* nat_gateway_id       = azurerm_nat_gateway.gateway.id */
 }
 
 # Créer un sous-réseau public
@@ -103,29 +101,3 @@ resource "azurerm_subnet" "pub_subnet" {
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = var.pub_sbnt_add_pref
 }
-
-/* # Outputs
-
-output "resource_group_name" {
-  value = azurerm_resource_group.rg.name
-}
-
-output "subnet1_id" {
-  value = azurerm_subnet.subnet1.id
-}
-
-output "client_certificate" {
-  value = azurerm_kubernetes_cluster.AKS.kube_config.0.client_certificate
-}
-
-output "kube_config" {
-  value = azurerm_kubernetes_cluster.AKS.kube_config_raw
-}
-
-output "priv_subnet_id" {
-  value = azurerm_subnet.priv_subnet.id
-}
-
-output "pub_subnet_id" {
-  value = azurerm_subnet.pub_subnet.id
-} */
