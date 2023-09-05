@@ -46,12 +46,6 @@ variable gateway_name {
   default = "db12_gateway"
 }
 
-/* variable sku_name {
-  description = "Sku pour la passerelle"
-  type = string
-  default = "Static"
-} */
-
 variable pubIP_gateway_name {  
   description = "Nom de l'IP publique de la gateway"
   type = string
@@ -117,7 +111,7 @@ variable dns_prefix {
 variable node_pool_name {
   description = "Nom du node pool"
   type = string
-  default = "pool-db12"
+  default = "db12pool"
 }
 
 variable node_count {
