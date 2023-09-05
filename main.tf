@@ -40,7 +40,7 @@ resource "azurerm_virtual_network" "vnet" {
 
 resource "azurerm_subnet" "subnet1" {
   name                 = var.subnet1_name
-  resource_group_name  = azurerm_resource_group.vnet.name
+  resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = var.subnet1_prefix
 }
@@ -52,7 +52,7 @@ resource "azurerm_nat_gateway" "gateway" {
   name                    = var.gateway_name
   resource_group_name     = azurerm_resource_group.rg.name
   location                = azurerm_resource_group.rg.location
-  public_ip_address_ids   = azurerm_public_ip.pub_subnet.id
+  public_ip_address_ids   = azurerm_public_ip.pubIP_gateway
 }
 
 # Créer une IP publique pour la NAT Gateway
@@ -73,7 +73,7 @@ resource "azurerm_route_table" "routeTab" {
 
 # Attacher la Route Table au Subnet
 resource "azurerm_subnet_route_table_association" "route-association" {
-  subnet_id      = azurerm_subnet.subnet.id
+  subnet_id      = azurerm_subnet.subnet1.id
   route_table_id = azurerm_route_table.routeTab
 }
 
