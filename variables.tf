@@ -64,11 +64,11 @@ variable pubIP_sku {
   default = "Standard"
 }
 
-variable routeTab_name {  
+/* variable routeTab_name {  
   description = "Nom de la table de routage"
   type = string
   default = "db12_routeTab"
-}
+} */
 
 variable priv_subnet_name {  
   description = "Nom du sous-réseau privé"
