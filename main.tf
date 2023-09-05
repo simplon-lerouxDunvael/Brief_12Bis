@@ -1,4 +1,4 @@
-# Module de déploiement d'un RG et d'un network
+# Module de déploiement d'un RG, réseau et sous-réseau et d'un cluster AKS => https://github.com/edalferes/terraform-azure-aks/blob/master/variables.tf
 
 terraform {
  required_providers {
@@ -29,6 +29,11 @@ resource "azurerm_kubernetes_cluster" "AKS" {
     name       = var.node_pool_name
     node_count = var.node_count
     vm_size    = var.vm_size
+  }
+
+  network_profile {
+    network_plugin     = "azure"
+    load_balancer_sku  = "standard"
   }
 
   identity {
