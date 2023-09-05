@@ -91,7 +91,7 @@ variable pub_subnet_name {
 variable pub_sbnt_add_pref {  
   description = "Plage d'adresses IP pour le sous-réseau publique"
   type = list(string)
-  default = ["10.0.3.0/24"]
+  default = ["10.0.6.0/24"]
 }
 
 # Variables pour l'AKS
