@@ -108,6 +108,12 @@ variable aks_name {
   default = "db12-AKS"
 }
 
+variable dns_prefix {
+  description = "DNS pour le cluster AKS"
+  type = string
+  default = "aks-db12"
+}
+
 variable node_pool_name {
   description = "Nom du node pool"
   type = string
