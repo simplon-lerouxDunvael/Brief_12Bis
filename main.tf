@@ -52,7 +52,7 @@ resource "azurerm_nat_gateway" "gateway" {
   name                    = var.gateway_name
   resource_group_name     = azurerm_resource_group.rg.name
   location                = azurerm_resource_group.rg.location
-  sku_name                = var.sku_name
+  /* sku_name                = var.sku_name */
 }
 
 # Créer une IP publique pour la NAT Gateway
