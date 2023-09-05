@@ -119,15 +119,3 @@ variable vm_size {
   type = string
   default = "Standard_D2_v2"
 }
-
-variable identity {
-  description = "Identité"
-  type = string
-  default = "SystemAssigned"
-}
-
-variable tags {
-  description = "Tag"
-  type = string
-  default = "dev"
-}
